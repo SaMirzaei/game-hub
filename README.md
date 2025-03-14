@@ -1,3 +1,7 @@
+# Hosted on https://vercel.com/
+the web-app is accessible under: https://game-hub-beta-five.vercel.app/
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
