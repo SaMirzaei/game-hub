@@ -1,9 +1,10 @@
-import { Game } from '@/hooks/useGames'
 import { Button, Card, HStack, Image } from '@chakra-ui/react'
 import PlatformIconList from './PlatformIconList'
 import CriticScore from './CriticScore'
 import getCroppedImageUrl from '@/services/image-url'
 import Emoji from './Emoji'
+import { Link } from 'react-router-dom'
+import Game from '@/entities/Game'
 
 interface Props {
     game: Game
@@ -21,10 +22,12 @@ const GameCard = ({ game }: Props) => {
                     <PlatformIconList platforms={game.parent_platforms.map(p => p.platform)} />
                     <CriticScore score={game.metacritic} />
                 </HStack>
-                <Card.Title>
-                    {game.name}
-                    <Emoji rating={game.rating_top} />
-                </Card.Title>
+                <Link to={'/games/' + game.slug}>
+                    <Card.Title>
+                        {game.name}
+                        <Emoji rating={game.rating_top} />
+                    </Card.Title>
+                </Link>
                 <Card.Description>
                     {game.released}
                     {/* This sofa is perfect for modern tropical spaces, baroque inspired
