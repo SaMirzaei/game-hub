@@ -1,58 +1,84 @@
-# Hosted on https://vercel.com/
-the web-app is accessible under: https://game-hub-beta-five.vercel.app/
+# Game Hub 🎮
 
+A modern, responsive video game discovery platform built with React and TypeScript. Browse, search, and discover games from the extensive RAWG Video Games Database.
 
-# React + TypeScript + Vite
+## 🌐 Live Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Production:** [https://game-hub-beta-five.vercel.app/](https://game-hub-beta-five.vercel.app/)
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Game Discovery**: Browse thousands of games with detailed information
+- **Advanced Search**: Search games by title, genre, platform, and more
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **Dark/Light Theme**: Toggle between dark and light themes
+- **Game Details**: View comprehensive game information, screenshots, and trailers
+- **Platform Filtering**: Filter games by gaming platforms (PC, PlayStation, Xbox, etc.)
+- **Genre Filtering**: Browse games by genres (Action, Adventure, RPG, etc.)
+- **Sorting Options**: Sort by relevance, rating, release date, and more
+- **Infinite Scroll**: Seamless browsing experience with automatic content loading
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend**: React 19 + TypeScript
+- **Build Tool**: Vite
+- **UI Library**: Chakra UI v3
+- **State Management**: Zustand
+- **Data Fetching**: TanStack Query (React Query)
+- **Routing**: React Router DOM
+- **HTTP Client**: Axios
+- **API**: RAWG Video Games Database
+- **Deployment**: Vercel
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🚀 Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/SaMirzaei/game-hub.git
+cd game-hub
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The app will be available at `http://localhost:5173`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📚 Documentation
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- [Frontend Development Guide](docs/FRONTEND.md)
+- [API Integration & Backend Services](docs/API.md)
+- [Deployment Guide](docs/DEPLOYMENT.md)
+- [Contributing Guidelines](docs/CONTRIBUTING.md)
+- [Architecture Overview](docs/ARCHITECTURE.md)
+
+## 🎯 Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](docs/CONTRIBUTING.md) for details.
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- [RAWG Video Games Database](https://rawg.io/apidocs) for providing the games API
+- [Chakra UI](https://chakra-ui.com/) for the component library
+- [React Query](https://tanstack.com/query) for data fetching and caching
