@@ -354,7 +354,7 @@ export class APIClientError extends Error {
 }
 ```
 
-### Error Handling in API Client
+### Fehlerbehandlung in API Client
 
 ```typescript
 // Enhanced API client with error handling
@@ -405,7 +405,7 @@ class APICLient<T> {
 }
 ```
 
-### Error Handling in Components
+### Fehlerbehandlung in Components
 
 ```typescript
 const GameDetails = ({ slug }: { slug: string }) => {
@@ -443,7 +443,7 @@ const axiosInstance = axios.create({
 });
 ```
 
-### Environment Configuration
+### Umgebung Configuration
 
 ```bash
 # .env.local
@@ -535,7 +535,7 @@ const useGameSearch = (searchTerm: string) => {
 };
 ```
 
-## Testing API Integration
+## Testen API Integration
 
 ### Mock API Responses
 
@@ -598,9 +598,9 @@ test('useGames fetches games successfully', async () => {
 });
 ```
 
-## Image Processing
+## Bildverarbeitung
 
-### Image URL Optimization
+### Bild-URL-Optimierung
 
 ```typescript
 // services/image-url.ts
@@ -612,14 +612,14 @@ const getCroppedImageUrl = (url: string) => {
   const target = 'media/';
   const index = url.indexOf(target) + target.length;
   
-  // Add crop parameters for consistent image sizes
+  // Crop-Parameter für einheitliche Bildgrößen hinzufügen
   return url.slice(0, index) + 'crop/600/400/' + url.slice(index);
 };
 
 export default getCroppedImageUrl;
 ```
 
-### Responsive Images
+### Responsive Bilder
 
 ```tsx
 // components/GameImage.tsx
@@ -642,9 +642,9 @@ const GameImage = ({ src, alt }: GameImageProps) => (
 );
 ```
 
-## Performance Monitoring
+## Performance-Monitoring
 
-### API Performance Tracking
+### API-Performance-Tracking
 
 ```typescript
 // utils/performance.ts
@@ -653,19 +653,19 @@ export const trackAPIPerformance = (endpoint: string, startTime: number) => {
   const duration = endTime - startTime;
   
   if (import.meta.env.DEV) {
-    console.log(`API ${endpoint} took ${duration.toFixed(2)}ms`);
+    console.log(`API ${endpoint} dauerte ${duration.toFixed(2)}ms`);
   }
   
-  // Send to analytics service in production
+  // An Analytics-Service in Produktion senden
   if (import.meta.env.PROD && duration > 1000) {
-    // Track slow API calls
-    console.warn(`Slow API call: ${endpoint} took ${duration}ms`);
+    // Langsame API-Aufrufe verfolgen
+    console.warn(`Langsamer API-Aufruf: ${endpoint} dauerte ${duration}ms`);
   }
 };
 ```
 
-## Next Steps
+## Nächste Schritte
 
-- Review [Frontend Development Guide](FRONTEND.md)
-- Check [Deployment Guide](DEPLOYMENT.md)
+- Überprüfen Sie das [Frontend-Entwicklungshandbuch](FRONTEND.md)
+- Lesen Sie das [Deployment-Handbuch](DEPLOYMENT.md)
 - Explore [Architecture Overview](ARCHITECTURE.md)

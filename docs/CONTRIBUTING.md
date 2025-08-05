@@ -79,7 +79,7 @@ Wir verpflichten uns, eine einladende und inklusive Umgebung für alle Mitwirken
    - Open `http://localhost:5173`
    - Ensure the application loads correctly
 
-### Environment Setup
+### Umgebung Setup
 
 Create a `.env.local` file for development:
 
@@ -88,7 +88,7 @@ Create a `.env.local` file for development:
 VITE_RAWG_API_KEY=your_api_key_here
 ```
 
-## Development Workflow
+## Entwicklung Workflow
 
 ### Branch Strategy
 
@@ -307,7 +307,7 @@ type(scope): description
 - `test`: Adding or updating tests
 - `chore`: Build process or auxiliary tool changes
 
-### Examples
+### Beispiele
 
 ```bash
 # Good commit messages
@@ -366,7 +366,7 @@ Explanation of why this change is needed
 ## How
 Technical details of implementation
 
-## Testing
+## Testen
 - [ ] Manual testing completed
 - [ ] No regressions found
 - [ ] Responsive design verified
@@ -436,7 +436,7 @@ Other solutions you've considered
 Any other relevant information
 ```
 
-## Testing Guidelines
+## Testen Guidelines
 
 ### Manual Testing
 
@@ -475,7 +475,7 @@ Any other relevant information
    - Ensure WCAG AA compliance
    - Test both light and dark themes
 
-## Documentation Guidelines
+## Dokumentation Guidelines
 
 ### Code Documentation
 

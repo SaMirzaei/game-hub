@@ -243,7 +243,7 @@ netlify deploy --prod
     Cache-Control = "public, max-age=31536000, immutable"
 ```
 
-### Environment Variables
+### Umgebung Variables
 
 ```bash
 # In Netlify dashboard or CLI
@@ -414,9 +414,9 @@ services:
       - NODE_ENV=production
 ```
 
-## Environment Configuration
+## Umgebung Configuration
 
-### Environment Variables
+### Umgebung Variables
 
 ```bash
 # .env.production
@@ -426,7 +426,7 @@ VITE_ENVIRONMENT=production
 VITE_ANALYTICS_ID=your_analytics_id
 ```
 
-### Environment-Specific Builds
+### Umgebung-Specific Builds
 
 ```typescript
 // src/config/environment.ts
@@ -708,7 +708,7 @@ jobs:
     echo "✅ Deployment successful"
 ```
 
-## Troubleshooting
+## Fehlerbehebung
 
 ### Common Deployment Issues
 
@@ -765,7 +765,7 @@ lighthouse https://your-deployed-app.com --output=html --output-path=./report.ht
 npm install --save-dev vite-bundle-analyzer
 ```
 
-## Security Considerations
+## Sicherheit Considerations
 
 ### Content Security Policy
 
@@ -780,7 +780,7 @@ npm install --save-dev vite-bundle-analyzer
 ">
 ```
 
-### Environment Security
+### Umgebung Security
 
 ```bash
 # Never commit these files
@@ -788,7 +788,7 @@ echo ".env.local" >> .gitignore
 echo ".env.production" >> .gitignore
 ```
 
-## Next Steps
+## Nächste Schritte
 
 - Review [Frontend Development Guide](FRONTEND.md)
 - Explore [API Integration Guide](API.md)

@@ -455,7 +455,7 @@ graph LR
     H --> I[Trigger Re-render]
 ```
 
-### Error Handling Strategy
+### Fehlerbehandlung Strategy
 
 ```typescript
 // Centralized error handling
@@ -673,9 +673,9 @@ dist/
 │   └── index-[hash].js      # Main application
 ```
 
-## Security Architecture
+## Sicherheit Architecture
 
-### Security Measures
+### Sicherheit Measures
 
 1. **Environment Variables**: Secure API key management
 2. **HTTPS Only**: All API communications over HTTPS
