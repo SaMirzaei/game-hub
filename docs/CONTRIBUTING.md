@@ -1,53 +1,53 @@
-# Contributing Guidelines
+# Beitragsrichtlinien
 
-Welcome to Game Hub! We appreciate your interest in contributing to this project. This guide will help you get started with contributing to the codebase.
+Willkommen bei Game Hub! Wir schätzen Ihr Interesse, zu diesem Projekt beizutragen. Dieses Handbuch hilft Ihnen beim Einstieg in Beiträge zur Codebasis.
 
-## Table of Contents
+## Inhaltsverzeichnis
 
-- [Code of Conduct](#code-of-conduct)
-- [Getting Started](#getting-started)
-- [Development Workflow](#development-workflow)
-- [Coding Standards](#coding-standards)
-- [Commit Guidelines](#commit-guidelines)
-- [Pull Request Process](#pull-request-process)
-- [Issue Reporting](#issue-reporting)
-- [Testing Guidelines](#testing-guidelines)
-- [Documentation Guidelines](#documentation-guidelines)
-- [Review Process](#review-process)
+- [Verhaltenskodex](#verhaltenskodex)
+- [Erste Schritte](#erste-schritte)
+- [Entwicklungsworkflow](#entwicklungsworkflow)
+- [Coding-Standards](#coding-standards)
+- [Commit-Richtlinien](#commit-richtlinien)
+- [Pull Request-Prozess](#pull-request-prozess)
+- [Problem-Meldung](#problem-meldung)
+- [Test-Richtlinien](#test-richtlinien)
+- [Dokumentations-Richtlinien](#dokumentations-richtlinien)
+- [Review-Prozess](#review-prozess)
 
-## Code of Conduct
+## Verhaltenskodex
 
-### Our Pledge
+### Unser Versprechen
 
-We are committed to providing a welcoming and inclusive environment for all contributors. We pledge to:
+Wir verpflichten uns, eine einladende und inklusive Umgebung für alle Mitwirkenden zu schaffen. Wir versprechen:
 
-- Be respectful and inclusive in all interactions
-- Welcome newcomers and help them get started
-- Focus on what is best for the community
-- Show empathy towards other community members
+- Respektvoll und inklusiv in allen Interaktionen zu sein
+- Neuankömmlinge willkommen zu heißen und ihnen beim Einstieg zu helfen
+- Uns auf das zu konzentrieren, was für die Community am besten ist
+- Empathie gegenüber anderen Community-Mitgliedern zu zeigen
 
-### Expected Behavior
+### Erwartetes Verhalten
 
-- Use welcoming and inclusive language
-- Be respectful of differing viewpoints and experiences
-- Gracefully accept constructive criticism
-- Focus on what is best for the community
-- Show empathy towards other community members
+- Einladende und inklusive Sprache verwenden
+- Respektvoll gegenüber unterschiedlichen Standpunkten und Erfahrungen sein
+- Konstruktive Kritik würdevoll annehmen
+- Sich auf das konzentrieren, was für die Community am besten ist
+- Empathie gegenüber anderen Community-Mitgliedern zeigen
 
-### Unacceptable Behavior
+### Inakzeptables Verhalten
 
-- Harassment, discrimination, or hostile behavior
-- Trolling, insulting/derogatory comments
-- Public or private harassment
-- Publishing others' private information without permission
-- Other conduct which could reasonably be considered inappropriate
+- Belästigung, Diskriminierung oder feindseliges Verhalten
+- Trolling, beleidigende/abwertende Kommentare
+- Öffentliche oder private Belästigung
+- Veröffentlichung privater Informationen anderer ohne Erlaubnis
+- Anderes Verhalten, das vernünftigerweise als unangemessen betrachtet werden könnte
 
-## Getting Started
+## Erste Schritte
 
-### Prerequisites
+### Voraussetzungen
 
-- Node.js 18 or higher
-- npm or yarn package manager
+- Node.js 18 oder höher
+- npm oder yarn Package Manager
 - Git
 - Code editor (VS Code recommended)
 

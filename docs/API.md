@@ -178,7 +178,7 @@ export interface Trailer {
 }
 ```
 
-### Query Parameters
+### Query-Parameter
 
 ```typescript
 export interface GameQuery {
@@ -193,7 +193,7 @@ export interface GameQuery {
 
 ## Service Layer
 
-### Custom Hooks for Data Fetching
+### Custom Hooks für Data Fetching
 
 ```typescript
 // hooks/useGames.ts
@@ -220,7 +220,7 @@ const useGames = (gameQuery: GameQuery) =>
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.next ? allPages.length + 1 : undefined;
     },
-    staleTime: 1000 * 60 * 5, // 5 minutes
+    staleTime: 1000 * 60 * 5, // 5 Minuten
   });
 
 export default useGames;
@@ -234,7 +234,7 @@ const useGame = (slug: string) =>
   useQuery({
     queryKey: ['games', slug],
     queryFn: () => apiClient.get(slug),
-    staleTime: 1000 * 60 * 10, // 10 minutes
+    staleTime: 1000 * 60 * 10, // 10 Minuten
   });
 
 // hooks/useGenres.ts
@@ -242,7 +242,7 @@ const useGenres = () =>
   useQuery({
     queryKey: ['genres'],
     queryFn: () => genresApiClient.getAll({}),
-    staleTime: 1000 * 60 * 60 * 24, // 24 hours (genres rarely change)
+    staleTime: 1000 * 60 * 60 * 24, // 24 Stunden (Genres ändern sich selten)
   });
 
 // hooks/useScreenshots.ts
@@ -250,14 +250,14 @@ const useScreenshots = (gameId: number) =>
   useQuery({
     queryKey: ['screenshots', gameId],
     queryFn: () => screenshotsApiClient.getAll({}),
-    staleTime: 1000 * 60 * 60, // 1 hour
+    staleTime: 1000 * 60 * 60, // 1 Stunde
   });
 ```
 
-### Query Key Strategies
+### Query Key-Strategien
 
 ```typescript
-// Query keys for different data types
+// Query Keys für verschiedene Datentypen
 const queryKeys = {
   games: ['games'] as const,
   game: (slug: string) => ['games', slug] as const,
@@ -269,9 +269,9 @@ const queryKeys = {
 };
 ```
 
-## Caching Strategy
+## Caching-Strategie
 
-### React Query Configuration
+### React Query-Konfiguration
 
 ```typescript
 // main.tsx
@@ -280,8 +280,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 1000 * 60 * 5, // 5 minutes default
-      cacheTime: 1000 * 60 * 10, // 10 minutes default
+      staleTime: 1000 * 60 * 5, // 5 Minuten Standard
+      cacheTime: 1000 * 60 * 10, // 10 Minuten Standard
       retry: 3,
       retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
     },
@@ -289,10 +289,10 @@ const queryClient = new QueryClient({
 });
 ```
 
-### Cache Invalidation
+### Cache-Invalidierung
 
 ```typescript
-// Invalidate cache when needed
+// Cache invalidieren wenn nötig
 import { useQueryClient } from '@tanstack/react-query';
 
 const useRefreshData = () => {
@@ -313,7 +313,7 @@ const useRefreshData = () => {
 ### Prefetching
 
 ```typescript
-// Prefetch related data
+// Verwandte Daten vorladen
 const useGamePrefetch = () => {
   const queryClient = useQueryClient();
 
@@ -329,9 +329,9 @@ const useGamePrefetch = () => {
 };
 ```
 
-## Error Handling
+## Fehlerbehandlung
 
-### API Error Types
+### API-Fehlertypen
 
 ```typescript
 // types/errors.ts

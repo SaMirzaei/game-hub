@@ -1,50 +1,50 @@
-# Deployment Guide
+# Deployment-Handbuch
 
-This guide covers deployment strategies and configurations for the Game Hub application.
+Dieses Handbuch behandelt Deployment-Strategien und -Konfigurationen für die Game Hub-Anwendung.
 
-## Table of Contents
+## Inhaltsverzeichnis
 
-- [Overview](#overview)
-- [Build Process](#build-process)
-- [Deployment Platforms](#deployment-platforms)
+- [Übersicht](#übersicht)
+- [Build-Prozess](#build-prozess)
+- [Deployment-Plattformen](#deployment-plattformen)
 - [Vercel Deployment](#vercel-deployment)
 - [Netlify Deployment](#netlify-deployment)
 - [GitHub Pages Deployment](#github-pages-deployment)
 - [Docker Deployment](#docker-deployment)
-- [Environment Configuration](#environment-configuration)
-- [Performance Optimization](#performance-optimization)
+- [Umgebungskonfiguration](#umgebungskonfiguration)
+- [Performance-Optimierung](#performance-optimierung)
 - [Monitoring & Analytics](#monitoring--analytics)
 - [CI/CD Pipeline](#cicd-pipeline)
-- [Troubleshooting](#troubleshooting)
+- [Fehlerbehebung](#fehlerbehebung)
 
-## Overview
+## Übersicht
 
-Game Hub is a static single-page application (SPA) built with Vite, making it suitable for deployment on various static hosting platforms. The application requires no server-side processing and can be deployed as static files.
+Game Hub ist eine statische Single-Page-Anwendung (SPA), die mit Vite erstellt wurde und sich für das Deployment auf verschiedenen statischen Hosting-Plattformen eignet. Die Anwendung benötigt keine serverseitige Verarbeitung und kann als statische Dateien bereitgestellt werden.
 
-### Deployment Requirements
+### Deployment-Anforderungen
 
-- **Node.js 18+** for building
-- **Static file hosting** capability
-- **HTTPS support** for API calls
-- **Environment variable** support
-- **Custom domain** support (optional)
+- **Node.js 18+** für das Building
+- **Statisches Datei-Hosting** Fähigkeit
+- **HTTPS-Unterstützung** für API-Aufrufe
+- **Umgebungsvariablen** Unterstützung
+- **Custom Domain** Unterstützung (optional)
 
-### Current Deployment
+### Aktuelles Deployment
 
-**Production URL**: [https://game-hub-beta-five.vercel.app/](https://game-hub-beta-five.vercel.app/)
+**Produktions-URL**: [https://game-hub-beta-five.vercel.app/](https://game-hub-beta-five.vercel.app/)
 
-## Build Process
+## Build-Prozess
 
-### Production Build
+### Produktions-Build
 
 ```bash
-# Install dependencies
+# Abhängigkeiten installieren
 npm install
 
-# Build for production
+# Für Produktion bauen
 npm run build
 
-# Preview build locally (optional)
+# Build lokal vorschauen (optional)
 npm run preview
 ```
 
