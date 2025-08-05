@@ -1,50 +1,50 @@
-# API Integration & Backend Services
+# API-Integration & Backend-Services
 
-This guide covers the API integration and backend services used in the Game Hub application.
+Dieses Handbuch behandelt die API-Integration und Backend-Services, die in der Game Hub-Anwendung verwendet werden.
 
-## Table of Contents
+## Inhaltsverzeichnis
 
-- [Overview](#overview)
-- [RAWG API Integration](#rawg-api-integration)
-- [API Client Architecture](#api-client-architecture)
-- [Data Models](#data-models)
+- [Übersicht](#übersicht)
+- [RAWG API-Integration](#rawg-api-integration)
+- [API-Client-Architektur](#api-client-architektur)
+- [Datenmodelle](#datenmodelle)
 - [Service Layer](#service-layer)
-- [Caching Strategy](#caching-strategy)
-- [Error Handling](#error-handling)
-- [API Security](#api-security)
+- [Caching-Strategie](#caching-strategie)
+- [Fehlerbehandlung](#fehlerbehandlung)
+- [API-Sicherheit](#api-sicherheit)
 - [Rate Limiting](#rate-limiting)
-- [Testing API Integration](#testing-api-integration)
+- [Testen der API-Integration](#testen-der-api-integration)
 
-## Overview
+## Übersicht
 
-Game Hub is a frontend-only application that integrates with external APIs to provide game data. The primary data source is the RAWG Video Games Database API, which provides comprehensive information about video games, platforms, genres, and more.
+Game Hub ist eine reine Frontend-Anwendung, die sich mit externen APIs integriert, um Spieldaten bereitzustellen. Die primäre Datenquelle ist die RAWG Video Games Database API, die umfassende Informationen über Videospiele, Plattformen, Genres und mehr bietet.
 
-### Architecture Pattern
+### Architektur-Pattern
 
 ```
-Frontend (React) → API Client → External APIs → Response Processing → State Management
+Frontend (React) → API Client → Externe APIs → Response Processing → State Management
 ```
 
-### Key Technologies
+### Schlüsseltechnologien
 
-- **Axios**: HTTP client for API requests
-- **TanStack Query**: Server state management and caching
-- **TypeScript**: Type-safe API integration
-- **Custom API Client**: Abstraction layer for API calls
+- **Axios**: HTTP-Client für API-Anfragen
+- **TanStack Query**: Server State Management und Caching
+- **TypeScript**: Typsichere API-Integration
+- **Custom API Client**: Abstraktionsschicht für API-Aufrufe
 
-## RAWG API Integration
+## RAWG API-Integration
 
-### About RAWG API
+### Über die RAWG API
 
-The [RAWG Video Games Database](https://rawg.io/apidocs) is a comprehensive API that provides:
+Die [RAWG Video Games Database](https://rawg.io/apidocs) ist eine umfassende API, die folgendes bietet:
 
-- **Games Database**: 800,000+ games with detailed information
-- **Platform Data**: Gaming platforms (PC, PlayStation, Xbox, Nintendo, etc.)
-- **Genre Information**: Game categories and classifications
-- **Screenshots & Media**: Game images and trailers
-- **Game Details**: Ratings, descriptions, release dates, developers
+- **Spiele-Datenbank**: 800.000+ Spiele mit detaillierten Informationen
+- **Plattform-Daten**: Gaming-Plattformen (PC, PlayStation, Xbox, Nintendo, etc.)
+- **Genre-Informationen**: Spielkategorien und -klassifikationen
+- **Screenshots & Medien**: Spielbilder und Trailer
+- **Spiele-Details**: Bewertungen, Beschreibungen, Veröffentlichungsdaten, Entwickler
 
-### API Configuration
+### API-Konfiguration
 
 ```typescript
 // services/api-client.ts
@@ -53,25 +53,25 @@ import axios from "axios";
 const axiosInstance = axios.create({
   baseURL: "https://api.rawg.io/api",
   params: {
-    key: "609c406a992648298d5447723ca633bf", // API key
+    key: "609c406a992648298d5447723ca633bf", // API-Schlüssel
   },
 });
 ```
 
-### Available Endpoints
+### Verfügbare Endpoints
 
-| Endpoint | Purpose | Example |
-|----------|---------|---------|
-| `/games` | List games with filtering | `/games?genres=4&platforms=4` |
-| `/games/{id}` | Get game details | `/games/3498` |
-| `/games/{id}/screenshots` | Game screenshots | `/games/3498/screenshots` |
-| `/games/{id}/movies` | Game trailers | `/games/3498/movies` |
-| `/genres` | List game genres | `/genres` |
-| `/platforms` | List platforms | `/platforms` |
+| Endpoint | Zweck | Beispiel |
+|----------|-------|----------|
+| `/games` | Spiele mit Filterung auflisten | `/games?genres=4&platforms=4` |
+| `/games/{id}` | Spiele-Details abrufen | `/games/3498` |
+| `/games/{id}/screenshots` | Spiele-Screenshots | `/games/3498/screenshots` |
+| `/games/{id}/movies` | Spiele-Trailer | `/games/3498/movies` |
+| `/genres` | Genres auflisten | `/genres` |
+| `/platforms` | Plattformen auflisten | `/platforms` |
 
-## API Client Architecture
+## API-Client-Architektur
 
-### Generic API Client
+### Generischer API-Client
 
 ```typescript
 // services/api-client.ts
@@ -104,7 +104,7 @@ class APICLient<T> {
 export default APICLient;
 ```
 
-### Service Instantiation
+### Service-Instanziierung
 
 ```typescript
 // hooks/useGames.ts
@@ -118,9 +118,9 @@ import { Genre } from '../entities/Genre';
 const genresApiClient = new APIClient<Genre>('/genres');
 ```
 
-## Data Models
+## Datenmodelle
 
-### Core Entities
+### Kern-Entitäten
 
 ```typescript
 // entities/Game.ts

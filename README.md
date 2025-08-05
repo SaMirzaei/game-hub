@@ -1,22 +1,22 @@
 # Game Hub 🎮
 
-A modern, responsive video game discovery platform built with React and TypeScript. Browse, search, and discover games from the extensive RAWG Video Games Database.
+Eine moderne, responsive Videospiel-Entdeckungsplattform, entwickelt mit React und TypeScript. Durchsuchen, suchen und entdecken Sie Spiele aus der umfangreichen RAWG Video Games Database.
 
 ## 🌐 Live Demo
 
-**Production:** [https://game-hub-beta-five.vercel.app/](https://game-hub-beta-five.vercel.app/)
+**Produktion:** [https://game-hub-beta-five.vercel.app/](https://game-hub-beta-five.vercel.app/)
 
-## ✨ Features
+## ✨ Funktionen
 
-- **Game Discovery**: Browse thousands of games with detailed information
-- **Advanced Search**: Search games by title, genre, platform, and more
-- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
-- **Dark/Light Theme**: Toggle between dark and light themes
-- **Game Details**: View comprehensive game information, screenshots, and trailers
-- **Platform Filtering**: Filter games by gaming platforms (PC, PlayStation, Xbox, etc.)
-- **Genre Filtering**: Browse games by genres (Action, Adventure, RPG, etc.)
-- **Sorting Options**: Sort by relevance, rating, release date, and more
-- **Infinite Scroll**: Seamless browsing experience with automatic content loading
+- **Spiele-Entdeckung**: Durchsuchen Sie tausende von Spielen mit detaillierten Informationen
+- **Erweiterte Suche**: Suchen Sie Spiele nach Titel, Genre, Plattform und mehr
+- **Responsive Design**: Optimiert für Desktop, Tablet und mobile Geräte
+- **Dunkles/Helles Theme**: Wechseln Sie zwischen dunklen und hellen Themes
+- **Spiele-Details**: Umfassende Spielinformationen, Screenshots und Trailer anzeigen
+- **Plattform-Filterung**: Filtern Sie Spiele nach Gaming-Plattformen (PC, PlayStation, Xbox, etc.)
+- **Genre-Filterung**: Durchsuchen Sie Spiele nach Genres (Action, Adventure, RPG, etc.)
+- **Sortieroptionen**: Sortieren nach Relevanz, Bewertung, Veröffentlichungsdatum und mehr
+- **Unendliches Scrollen**: Nahtloses Browsing-Erlebnis mit automatischem Inhaltsladen
 
 ## 🛠️ Tech Stack
 
@@ -30,55 +30,55 @@ A modern, responsive video game discovery platform built with React and TypeScri
 - **API**: RAWG Video Games Database
 - **Deployment**: Vercel
 
-## 🚀 Quick Start
+## 🚀 Schnellstart
 
 ```bash
-# Clone the repository
+# Repository klonen
 git clone https://github.com/SaMirzaei/game-hub.git
 cd game-hub
 
-# Install dependencies
+# Abhängigkeiten installieren
 npm install
 
-# Start development server
+# Entwicklungsserver starten
 npm run dev
 
-# Build for production
+# Für Produktion bauen
 npm run build
 
-# Preview production build
+# Produktions-Build vorschauen
 npm run preview
 ```
 
-The app will be available at `http://localhost:5173`
+Die App wird unter `http://localhost:5173` verfügbar sein
 
-## 📚 Documentation
+## 📚 Dokumentation
 
-- [Frontend Development Guide](docs/FRONTEND.md)
-- [API Integration & Backend Services](docs/API.md)
-- [Deployment Guide](docs/DEPLOYMENT.md)
-- [Contributing Guidelines](docs/CONTRIBUTING.md)
-- [Architecture Overview](docs/ARCHITECTURE.md)
+- [Frontend-Entwicklungshandbuch](docs/FRONTEND.md)
+- [API-Integration & Backend-Services](docs/API.md)
+- [Deployment-Handbuch](docs/DEPLOYMENT.md)
+- [Beitragsrichtlinien](docs/CONTRIBUTING.md)
+- [Architektur-Übersicht](docs/ARCHITECTURE.md)
 
-## 🎯 Available Scripts
+## 🎯 Verfügbare Scripts
 
-| Command | Description |
+| Befehl | Beschreibung |
 |---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build |
-| `npm run lint` | Run ESLint |
+| `npm run dev` | Entwicklungsserver starten |
+| `npm run build` | Für Produktion bauen |
+| `npm run preview` | Produktions-Build vorschauen |
+| `npm run lint` | ESLint ausführen |
 
-## 🤝 Contributing
+## 🤝 Beiträge
 
-We welcome contributions! Please see our [Contributing Guidelines](docs/CONTRIBUTING.md) for details.
+Wir begrüßen Beiträge! Bitte lesen Sie unsere [Beitragsrichtlinien](docs/CONTRIBUTING.md) für Details.
 
-## 📄 License
+## 📄 Lizenz
 
-This project is open source and available under the [MIT License](LICENSE).
+Dieses Projekt ist Open Source und verfügbar unter der [MIT-Lizenz](LICENSE).
 
-## 🙏 Acknowledgments
+## 🙏 Danksagungen
 
-- [RAWG Video Games Database](https://rawg.io/apidocs) for providing the games API
-- [Chakra UI](https://chakra-ui.com/) for the component library
-- [React Query](https://tanstack.com/query) for data fetching and caching
+- [RAWG Video Games Database](https://rawg.io/apidocs) für die Bereitstellung der Spiele-API
+- [Chakra UI](https://chakra-ui.com/) für die Komponenten-Bibliothek
+- [React Query](https://tanstack.com/query) für Data Fetching und Caching
