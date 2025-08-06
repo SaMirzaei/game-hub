@@ -1,50 +1,50 @@
-# Deployment-Handbuch
+# Deployment Guide
 
-Dieses Handbuch behandelt Deployment-Strategien und -Konfigurationen für die Game Hub-Anwendung.
+This guide covers deployment strategies and configurations for the Game Hub application.
 
-## Inhaltsverzeichnis
+## Table of Contents
 
-- [Übersicht](#übersicht)
-- [Build-Prozess](#build-prozess)
-- [Deployment-Plattformen](#deployment-plattformen)
+- [Overview](#overview)
+- [Build Process](#build-process)
+- [Deployment Platforms](#deployment-platforms)
 - [Vercel Deployment](#vercel-deployment)
 - [Netlify Deployment](#netlify-deployment)
 - [GitHub Pages Deployment](#github-pages-deployment)
 - [Docker Deployment](#docker-deployment)
-- [Umgebungskonfiguration](#umgebungskonfiguration)
-- [Performance-Optimierung](#performance-optimierung)
+- [Environment Configuration](#environment-configuration)
+- [Performance Optimization](#performance-optimization)
 - [Monitoring & Analytics](#monitoring--analytics)
 - [CI/CD Pipeline](#cicd-pipeline)
-- [Fehlerbehebung](#fehlerbehebung)
+- [Troubleshooting](#troubleshooting)
 
-## Übersicht
+## Overview
 
-Game Hub ist eine statische Single-Page-Anwendung (SPA), die mit Vite erstellt wurde und sich für das Deployment auf verschiedenen statischen Hosting-Plattformen eignet. Die Anwendung benötigt keine serverseitige Verarbeitung und kann als statische Dateien bereitgestellt werden.
+Game Hub is a static single-page application (SPA) built with Vite, making it suitable for deployment on various static hosting platforms. The application requires no server-side processing and can be deployed as static files.
 
-### Deployment-Anforderungen
+### Deployment Requirements
 
-- **Node.js 18+** für das Building
-- **Statisches Datei-Hosting** Fähigkeit
-- **HTTPS-Unterstützung** für API-Aufrufe
-- **Umgebungsvariablen** Unterstützung
-- **Custom Domain** Unterstützung (optional)
+- **Node.js 18+** for building
+- **Static file hosting** capability
+- **HTTPS support** for API calls
+- **Environment variable** support
+- **Custom domain** support (optional)
 
-### Aktuelles Deployment
+### Current Deployment
 
-**Produktions-URL**: [https://game-hub-beta-five.vercel.app/](https://game-hub-beta-five.vercel.app/)
+**Production URL**: [https://game-hub-beta-five.vercel.app/](https://game-hub-beta-five.vercel.app/)
 
-## Build-Prozess
+## Build Process
 
-### Produktions-Build
+### Production Build
 
 ```bash
-# Abhängigkeiten installieren
+# Install dependencies
 npm install
 
-# Für Produktion bauen
+# Build for production
 npm run build
 
-# Build lokal vorschauen (optional)
+# Preview build locally (optional)
 npm run preview
 ```
 
@@ -243,7 +243,7 @@ netlify deploy --prod
     Cache-Control = "public, max-age=31536000, immutable"
 ```
 
-### Umgebung Variables
+### Environment Variables
 
 ```bash
 # In Netlify dashboard or CLI
@@ -414,9 +414,9 @@ services:
       - NODE_ENV=production
 ```
 
-## Umgebung Configuration
+## Environment Configuration
 
-### Umgebung Variables
+### Environment Variables
 
 ```bash
 # .env.production
@@ -426,7 +426,7 @@ VITE_ENVIRONMENT=production
 VITE_ANALYTICS_ID=your_analytics_id
 ```
 
-### Umgebung-Specific Builds
+### Environment-Specific Builds
 
 ```typescript
 // src/config/environment.ts
@@ -708,7 +708,7 @@ jobs:
     echo "✅ Deployment successful"
 ```
 
-## Fehlerbehebung
+## Troubleshooting
 
 ### Common Deployment Issues
 
@@ -765,7 +765,7 @@ lighthouse https://your-deployed-app.com --output=html --output-path=./report.ht
 npm install --save-dev vite-bundle-analyzer
 ```
 
-## Sicherheit Considerations
+## Security Considerations
 
 ### Content Security Policy
 
@@ -780,7 +780,7 @@ npm install --save-dev vite-bundle-analyzer
 ">
 ```
 
-### Umgebung Security
+### Environment Security
 
 ```bash
 # Never commit these files
@@ -788,7 +788,7 @@ echo ".env.local" >> .gitignore
 echo ".env.production" >> .gitignore
 ```
 
-## Nächste Schritte
+## Next Steps
 
 - Review [Frontend Development Guide](FRONTEND.md)
 - Explore [API Integration Guide](API.md)

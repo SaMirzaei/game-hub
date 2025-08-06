@@ -1,27 +1,27 @@
-# Architektur-Übersicht
+# Architecture Overview
 
-Dieses Dokument bietet eine umfassende Übersicht über die Game Hub-Anwendungsarchitektur, Design-Patterns und Systemorganisation.
+This document provides a comprehensive overview of the Game Hub application architecture, design patterns, and system organization.
 
-## Inhaltsverzeichnis
+## Table of Contents
 
-- [System-Übersicht](#system-übersicht)
-- [Anwendungsarchitektur](#anwendungsarchitektur)
-- [Frontend-Architektur](#frontend-architektur)
-- [Datenfluss](#datenfluss)
-- [Komponenten-Architektur](#komponenten-architektur)
+- [System Overview](#system-overview)
+- [Application Architecture](#application-architecture)
+- [Frontend Architecture](#frontend-architecture)
+- [Data Flow](#data-flow)
+- [Component Architecture](#component-architecture)
 - [State Management](#state-management)
-- [API-Integrationsschicht](#api-integrationsschicht)
-- [Routing-Architektur](#routing-architektur)
-- [Build-Architektur](#build-architektur)
-- [Performance-Architektur](#performance-architektur)
-- [Sicherheitsarchitektur](#sicherheitsarchitektur)
-- [Skalierbarkeits-Überlegungen](#skalierbarkeits-überlegungen)
+- [API Integration Layer](#api-integration-layer)
+- [Routing Architecture](#routing-architecture)
+- [Build Architecture](#build-architecture)
+- [Performance Architecture](#performance-architecture)
+- [Security Architecture](#security-architecture)
+- [Scalability Considerations](#scalability-considerations)
 
-## System-Übersicht
+## System Overview
 
-Game Hub ist eine moderne Single-Page-Anwendung (SPA), die mit React und TypeScript erstellt wurde und darauf ausgelegt ist, Benutzern eine umfassende Spiele-Entdeckungsplattform zu bieten. Die Anwendung folgt einer clientseitigen Architektur, die sich mit externen APIs integriert, um ein reichhaltiges, interaktives Erlebnis zu liefern.
+Game Hub is a modern single-page application (SPA) built with React and TypeScript, designed to provide users with a comprehensive game discovery platform. The application follows a client-side architecture that integrates with external APIs to deliver a rich, interactive experience.
 
-### High-Level-Architektur
+### High-Level Architecture
 
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
@@ -38,16 +38,16 @@ Game Hub ist eine moderne Single-Page-Anwendung (SPA), die mit React und TypeScr
 └─────────────────┘    └──────────────────┘    └─────────────────┘
 ```
 
-### Technologie-Stack
+### Technology Stack
 
-| Schicht | Technologie | Zweck |
-|---------|-------------|-------|
-| **UI Framework** | React 19 | Komponentenbasierte Benutzeroberfläche |
-| **Typsystem** | TypeScript | Typsicherheit und Entwicklererfahrung |
-| **Build Tool** | Vite | Schnelle Entwicklung und optimierte Builds |
-| **UI Library** | Chakra UI v3 | Design System und Komponenten |
-| **State Management** | Zustand | Leichtgewichtiger globaler State |
-| **Data Fetching** | TanStack Query | Server State Management |
+| Layer | Technology | Purpose |
+|-------|------------|---------|
+| **UI Framework** | React 19 | Component-based user interface |
+| **Type System** | TypeScript | Type safety and developer experience |
+| **Build Tool** | Vite | Fast development and optimized builds |
+| **UI Library** | Chakra UI v3 | Design system and components |
+| **State Management** | Zustand | Lightweight global state |
+| **Data Fetching** | TanStack Query | Server state management |
 | **Routing** | React Router | Client-side navigation |
 | **HTTP Client** | Axios | API communication |
 
@@ -455,7 +455,7 @@ graph LR
     H --> I[Trigger Re-render]
 ```
 
-### Fehlerbehandlung Strategy
+### Error Handling Strategy
 
 ```typescript
 // Centralized error handling
@@ -673,9 +673,9 @@ dist/
 │   └── index-[hash].js      # Main application
 ```
 
-## Sicherheit Architecture
+## Security Architecture
 
-### Sicherheit Measures
+### Security Measures
 
 1. **Environment Variables**: Secure API key management
 2. **HTTPS Only**: All API communications over HTTPS

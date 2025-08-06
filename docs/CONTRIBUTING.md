@@ -1,53 +1,53 @@
-# Beitragsrichtlinien
+# Contributing Guidelines
 
-Willkommen bei Game Hub! Wir schätzen Ihr Interesse, zu diesem Projekt beizutragen. Dieses Handbuch hilft Ihnen beim Einstieg in Beiträge zur Codebasis.
+Welcome to Game Hub! We appreciate your interest in contributing to this project. This guide will help you get started with contributing to the codebase.
 
-## Inhaltsverzeichnis
+## Table of Contents
 
-- [Verhaltenskodex](#verhaltenskodex)
-- [Erste Schritte](#erste-schritte)
-- [Entwicklungsworkflow](#entwicklungsworkflow)
-- [Coding-Standards](#coding-standards)
-- [Commit-Richtlinien](#commit-richtlinien)
-- [Pull Request-Prozess](#pull-request-prozess)
-- [Problem-Meldung](#problem-meldung)
-- [Test-Richtlinien](#test-richtlinien)
-- [Dokumentations-Richtlinien](#dokumentations-richtlinien)
-- [Review-Prozess](#review-prozess)
+- [Code of Conduct](#code-of-conduct)
+- [Getting Started](#getting-started)
+- [Development Workflow](#development-workflow)
+- [Coding Standards](#coding-standards)
+- [Commit Guidelines](#commit-guidelines)
+- [Pull Request Process](#pull-request-process)
+- [Issue Reporting](#issue-reporting)
+- [Testing Guidelines](#testing-guidelines)
+- [Documentation Guidelines](#documentation-guidelines)
+- [Review Process](#review-process)
 
-## Verhaltenskodex
+## Code of Conduct
 
-### Unser Versprechen
+### Our Pledge
 
-Wir verpflichten uns, eine einladende und inklusive Umgebung für alle Mitwirkenden zu schaffen. Wir versprechen:
+We are committed to providing a welcoming and inclusive environment for all contributors. We pledge to:
 
-- Respektvoll und inklusiv in allen Interaktionen zu sein
-- Neuankömmlinge willkommen zu heißen und ihnen beim Einstieg zu helfen
-- Uns auf das zu konzentrieren, was für die Community am besten ist
-- Empathie gegenüber anderen Community-Mitgliedern zu zeigen
+- Be respectful and inclusive in all interactions
+- Welcome newcomers and help them get started
+- Focus on what is best for the community
+- Show empathy towards other community members
 
-### Erwartetes Verhalten
+### Expected Behavior
 
-- Einladende und inklusive Sprache verwenden
-- Respektvoll gegenüber unterschiedlichen Standpunkten und Erfahrungen sein
-- Konstruktive Kritik würdevoll annehmen
-- Sich auf das konzentrieren, was für die Community am besten ist
-- Empathie gegenüber anderen Community-Mitgliedern zeigen
+- Use welcoming and inclusive language
+- Be respectful of differing viewpoints and experiences
+- Gracefully accept constructive criticism
+- Focus on what is best for the community
+- Show empathy towards other community members
 
-### Inakzeptables Verhalten
+### Unacceptable Behavior
 
-- Belästigung, Diskriminierung oder feindseliges Verhalten
-- Trolling, beleidigende/abwertende Kommentare
-- Öffentliche oder private Belästigung
-- Veröffentlichung privater Informationen anderer ohne Erlaubnis
-- Anderes Verhalten, das vernünftigerweise als unangemessen betrachtet werden könnte
+- Harassment, discrimination, or hostile behavior
+- Trolling, insulting/derogatory comments
+- Public or private harassment
+- Publishing others' private information without permission
+- Other conduct which could reasonably be considered inappropriate
 
-## Erste Schritte
+## Getting Started
 
-### Voraussetzungen
+### Prerequisites
 
-- Node.js 18 oder höher
-- npm oder yarn Package Manager
+- Node.js 18 or higher
+- npm or yarn package manager
 - Git
 - Code editor (VS Code recommended)
 
@@ -79,7 +79,7 @@ Wir verpflichten uns, eine einladende und inklusive Umgebung für alle Mitwirken
    - Open `http://localhost:5173`
    - Ensure the application loads correctly
 
-### Umgebung Setup
+### Environment Setup
 
 Create a `.env.local` file for development:
 
@@ -88,7 +88,7 @@ Create a `.env.local` file for development:
 VITE_RAWG_API_KEY=your_api_key_here
 ```
 
-## Entwicklung Workflow
+## Development Workflow
 
 ### Branch Strategy
 
@@ -307,7 +307,7 @@ type(scope): description
 - `test`: Adding or updating tests
 - `chore`: Build process or auxiliary tool changes
 
-### Beispiele
+### Examples
 
 ```bash
 # Good commit messages
@@ -366,7 +366,7 @@ Explanation of why this change is needed
 ## How
 Technical details of implementation
 
-## Testen
+## Testing
 - [ ] Manual testing completed
 - [ ] No regressions found
 - [ ] Responsive design verified
@@ -436,7 +436,7 @@ Other solutions you've considered
 Any other relevant information
 ```
 
-## Testen Guidelines
+## Testing Guidelines
 
 ### Manual Testing
 
@@ -475,7 +475,7 @@ Any other relevant information
    - Ensure WCAG AA compliance
    - Test both light and dark themes
 
-## Dokumentation Guidelines
+## Documentation Guidelines
 
 ### Code Documentation
 

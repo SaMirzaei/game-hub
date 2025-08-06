@@ -1,50 +1,50 @@
-# API-Integration & Backend-Services
+# API Integration & Backend Services
 
-Dieses Handbuch behandelt die API-Integration und Backend-Services, die in der Game Hub-Anwendung verwendet werden.
+This guide covers the API integration and backend services used in the Game Hub application.
 
-## Inhaltsverzeichnis
+## Table of Contents
 
-- [Übersicht](#übersicht)
-- [RAWG API-Integration](#rawg-api-integration)
-- [API-Client-Architektur](#api-client-architektur)
-- [Datenmodelle](#datenmodelle)
+- [Overview](#overview)
+- [RAWG API Integration](#rawg-api-integration)
+- [API Client Architecture](#api-client-architecture)
+- [Data Models](#data-models)
 - [Service Layer](#service-layer)
-- [Caching-Strategie](#caching-strategie)
-- [Fehlerbehandlung](#fehlerbehandlung)
-- [API-Sicherheit](#api-sicherheit)
+- [Caching Strategy](#caching-strategy)
+- [Error Handling](#error-handling)
+- [API Security](#api-security)
 - [Rate Limiting](#rate-limiting)
-- [Testen der API-Integration](#testen-der-api-integration)
+- [Testing API Integration](#testing-api-integration)
 
-## Übersicht
+## Overview
 
-Game Hub ist eine reine Frontend-Anwendung, die sich mit externen APIs integriert, um Spieldaten bereitzustellen. Die primäre Datenquelle ist die RAWG Video Games Database API, die umfassende Informationen über Videospiele, Plattformen, Genres und mehr bietet.
+Game Hub is a frontend-only application that integrates with external APIs to provide game data. The primary data source is the RAWG Video Games Database API, which provides comprehensive information about video games, platforms, genres, and more.
 
-### Architektur-Pattern
+### Architecture Pattern
 
 ```
-Frontend (React) → API Client → Externe APIs → Response Processing → State Management
+Frontend (React) → API Client → External APIs → Response Processing → State Management
 ```
 
-### Schlüsseltechnologien
+### Key Technologies
 
-- **Axios**: HTTP-Client für API-Anfragen
-- **TanStack Query**: Server State Management und Caching
-- **TypeScript**: Typsichere API-Integration
-- **Custom API Client**: Abstraktionsschicht für API-Aufrufe
+- **Axios**: HTTP client for API requests
+- **TanStack Query**: Server state management and caching
+- **TypeScript**: Type-safe API integration
+- **Custom API Client**: Abstraction layer for API calls
 
-## RAWG API-Integration
+## RAWG API Integration
 
-### Über die RAWG API
+### About RAWG API
 
-Die [RAWG Video Games Database](https://rawg.io/apidocs) ist eine umfassende API, die folgendes bietet:
+The [RAWG Video Games Database](https://rawg.io/apidocs) is a comprehensive API that provides:
 
-- **Spiele-Datenbank**: 800.000+ Spiele mit detaillierten Informationen
-- **Plattform-Daten**: Gaming-Plattformen (PC, PlayStation, Xbox, Nintendo, etc.)
-- **Genre-Informationen**: Spielkategorien und -klassifikationen
-- **Screenshots & Medien**: Spielbilder und Trailer
-- **Spiele-Details**: Bewertungen, Beschreibungen, Veröffentlichungsdaten, Entwickler
+- **Games Database**: 800,000+ games with detailed information
+- **Platform Data**: Gaming platforms (PC, PlayStation, Xbox, Nintendo, etc.)
+- **Genre Information**: Game categories and classifications
+- **Screenshots & Media**: Game images and trailers
+- **Game Details**: Ratings, descriptions, release dates, developers
 
-### API-Konfiguration
+### API Configuration
 
 ```typescript
 // services/api-client.ts
@@ -53,25 +53,25 @@ import axios from "axios";
 const axiosInstance = axios.create({
   baseURL: "https://api.rawg.io/api",
   params: {
-    key: "609c406a992648298d5447723ca633bf", // API-Schlüssel
+    key: "609c406a992648298d5447723ca633bf", // API key
   },
 });
 ```
 
-### Verfügbare Endpoints
+### Available Endpoints
 
-| Endpoint | Zweck | Beispiel |
-|----------|-------|----------|
-| `/games` | Spiele mit Filterung auflisten | `/games?genres=4&platforms=4` |
-| `/games/{id}` | Spiele-Details abrufen | `/games/3498` |
-| `/games/{id}/screenshots` | Spiele-Screenshots | `/games/3498/screenshots` |
-| `/games/{id}/movies` | Spiele-Trailer | `/games/3498/movies` |
-| `/genres` | Genres auflisten | `/genres` |
-| `/platforms` | Plattformen auflisten | `/platforms` |
+| Endpoint | Purpose | Example |
+|----------|---------|---------|
+| `/games` | List games with filtering | `/games?genres=4&platforms=4` |
+| `/games/{id}` | Get game details | `/games/3498` |
+| `/games/{id}/screenshots` | Game screenshots | `/games/3498/screenshots` |
+| `/games/{id}/movies` | Game trailers | `/games/3498/movies` |
+| `/genres` | List game genres | `/genres` |
+| `/platforms` | List platforms | `/platforms` |
 
-## API-Client-Architektur
+## API Client Architecture
 
-### Generischer API-Client
+### Generic API Client
 
 ```typescript
 // services/api-client.ts
@@ -104,7 +104,7 @@ class APICLient<T> {
 export default APICLient;
 ```
 
-### Service-Instanziierung
+### Service Instantiation
 
 ```typescript
 // hooks/useGames.ts
@@ -118,9 +118,9 @@ import { Genre } from '../entities/Genre';
 const genresApiClient = new APIClient<Genre>('/genres');
 ```
 
-## Datenmodelle
+## Data Models
 
-### Kern-Entitäten
+### Core Entities
 
 ```typescript
 // entities/Game.ts
@@ -178,7 +178,7 @@ export interface Trailer {
 }
 ```
 
-### Query-Parameter
+### Query Parameters
 
 ```typescript
 export interface GameQuery {
@@ -193,7 +193,7 @@ export interface GameQuery {
 
 ## Service Layer
 
-### Custom Hooks für Data Fetching
+### Custom Hooks for Data Fetching
 
 ```typescript
 // hooks/useGames.ts
@@ -220,7 +220,7 @@ const useGames = (gameQuery: GameQuery) =>
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.next ? allPages.length + 1 : undefined;
     },
-    staleTime: 1000 * 60 * 5, // 5 Minuten
+    staleTime: 1000 * 60 * 5, // 5 minutes
   });
 
 export default useGames;
@@ -234,7 +234,7 @@ const useGame = (slug: string) =>
   useQuery({
     queryKey: ['games', slug],
     queryFn: () => apiClient.get(slug),
-    staleTime: 1000 * 60 * 10, // 10 Minuten
+    staleTime: 1000 * 60 * 10, // 10 minutes
   });
 
 // hooks/useGenres.ts
@@ -242,7 +242,7 @@ const useGenres = () =>
   useQuery({
     queryKey: ['genres'],
     queryFn: () => genresApiClient.getAll({}),
-    staleTime: 1000 * 60 * 60 * 24, // 24 Stunden (Genres ändern sich selten)
+    staleTime: 1000 * 60 * 60 * 24, // 24 hours (genres rarely change)
   });
 
 // hooks/useScreenshots.ts
@@ -250,14 +250,14 @@ const useScreenshots = (gameId: number) =>
   useQuery({
     queryKey: ['screenshots', gameId],
     queryFn: () => screenshotsApiClient.getAll({}),
-    staleTime: 1000 * 60 * 60, // 1 Stunde
+    staleTime: 1000 * 60 * 60, // 1 hour
   });
 ```
 
-### Query Key-Strategien
+### Query Key Strategies
 
 ```typescript
-// Query Keys für verschiedene Datentypen
+// Query keys for different data types
 const queryKeys = {
   games: ['games'] as const,
   game: (slug: string) => ['games', slug] as const,
@@ -269,9 +269,9 @@ const queryKeys = {
 };
 ```
 
-## Caching-Strategie
+## Caching Strategy
 
-### React Query-Konfiguration
+### React Query Configuration
 
 ```typescript
 // main.tsx
@@ -280,8 +280,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 1000 * 60 * 5, // 5 Minuten Standard
-      cacheTime: 1000 * 60 * 10, // 10 Minuten Standard
+      staleTime: 1000 * 60 * 5, // 5 minutes default
+      cacheTime: 1000 * 60 * 10, // 10 minutes default
       retry: 3,
       retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
     },
@@ -289,10 +289,10 @@ const queryClient = new QueryClient({
 });
 ```
 
-### Cache-Invalidierung
+### Cache Invalidation
 
 ```typescript
-// Cache invalidieren wenn nötig
+// Invalidate cache when needed
 import { useQueryClient } from '@tanstack/react-query';
 
 const useRefreshData = () => {
@@ -313,7 +313,7 @@ const useRefreshData = () => {
 ### Prefetching
 
 ```typescript
-// Verwandte Daten vorladen
+// Prefetch related data
 const useGamePrefetch = () => {
   const queryClient = useQueryClient();
 
@@ -329,9 +329,9 @@ const useGamePrefetch = () => {
 };
 ```
 
-## Fehlerbehandlung
+## Error Handling
 
-### API-Fehlertypen
+### API Error Types
 
 ```typescript
 // types/errors.ts
@@ -354,7 +354,7 @@ export class APIClientError extends Error {
 }
 ```
 
-### Fehlerbehandlung in API Client
+### Error Handling in API Client
 
 ```typescript
 // Enhanced API client with error handling
@@ -405,7 +405,7 @@ class APICLient<T> {
 }
 ```
 
-### Fehlerbehandlung in Components
+### Error Handling in Components
 
 ```typescript
 const GameDetails = ({ slug }: { slug: string }) => {
@@ -443,7 +443,7 @@ const axiosInstance = axios.create({
 });
 ```
 
-### Umgebung Configuration
+### Environment Configuration
 
 ```bash
 # .env.local
@@ -535,7 +535,7 @@ const useGameSearch = (searchTerm: string) => {
 };
 ```
 
-## Testen API Integration
+## Testing API Integration
 
 ### Mock API Responses
 
@@ -598,9 +598,9 @@ test('useGames fetches games successfully', async () => {
 });
 ```
 
-## Bildverarbeitung
+## Image Processing
 
-### Bild-URL-Optimierung
+### Image URL Optimization
 
 ```typescript
 // services/image-url.ts
@@ -612,14 +612,14 @@ const getCroppedImageUrl = (url: string) => {
   const target = 'media/';
   const index = url.indexOf(target) + target.length;
   
-  // Crop-Parameter für einheitliche Bildgrößen hinzufügen
+  // Add crop parameters for consistent image sizes
   return url.slice(0, index) + 'crop/600/400/' + url.slice(index);
 };
 
 export default getCroppedImageUrl;
 ```
 
-### Responsive Bilder
+### Responsive Images
 
 ```tsx
 // components/GameImage.tsx
@@ -642,9 +642,9 @@ const GameImage = ({ src, alt }: GameImageProps) => (
 );
 ```
 
-## Performance-Monitoring
+## Performance Monitoring
 
-### API-Performance-Tracking
+### API Performance Tracking
 
 ```typescript
 // utils/performance.ts
@@ -653,19 +653,19 @@ export const trackAPIPerformance = (endpoint: string, startTime: number) => {
   const duration = endTime - startTime;
   
   if (import.meta.env.DEV) {
-    console.log(`API ${endpoint} dauerte ${duration.toFixed(2)}ms`);
+    console.log(`API ${endpoint} took ${duration.toFixed(2)}ms`);
   }
   
-  // An Analytics-Service in Produktion senden
+  // Send to analytics service in production
   if (import.meta.env.PROD && duration > 1000) {
-    // Langsame API-Aufrufe verfolgen
-    console.warn(`Langsamer API-Aufruf: ${endpoint} dauerte ${duration}ms`);
+    // Track slow API calls
+    console.warn(`Slow API call: ${endpoint} took ${duration}ms`);
   }
 };
 ```
 
-## Nächste Schritte
+## Next Steps
 
-- Überprüfen Sie das [Frontend-Entwicklungshandbuch](FRONTEND.md)
-- Lesen Sie das [Deployment-Handbuch](DEPLOYMENT.md)
+- Review [Frontend Development Guide](FRONTEND.md)
+- Check [Deployment Guide](DEPLOYMENT.md)
 - Explore [Architecture Overview](ARCHITECTURE.md)

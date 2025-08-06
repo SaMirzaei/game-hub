@@ -1,102 +1,102 @@
-# Frontend-Entwicklungshandbuch
+# Frontend Development Guide
 
-Dieses Handbuch bietet umfassende Informationen für die Frontend-Entwicklung der Game Hub-Anwendung.
+This guide provides comprehensive information for frontend development on the Game Hub application.
 
-## Inhaltsverzeichnis
+## Table of Contents
 
-- [Projektstruktur](#projektstruktur)
-- [Entwicklungssetup](#entwicklungssetup)
-- [Architektur-Übersicht](#architektur-übersicht)
-- [Komponenten-Richtlinien](#komponenten-richtlinien)
-- [Styling mit Chakra UI](#styling-mit-chakra-ui)
+- [Project Structure](#project-structure)
+- [Development Setup](#development-setup)
+- [Architecture Overview](#architecture-overview)
+- [Component Guidelines](#component-guidelines)
+- [Styling with Chakra UI](#styling-with-chakra-ui)
 - [State Management](#state-management)
 - [Data Fetching](#data-fetching)
 - [Routing](#routing)
 - [Type Safety](#type-safety)
-- [Performance-Überlegungen](#performance-überlegungen)
-- [Build-Prozess](#build-prozess)
-- [Fehlerbehebung](#fehlerbehebung)
+- [Performance Considerations](#performance-considerations)
+- [Build Process](#build-process)
+- [Troubleshooting](#troubleshooting)
 
-## Projektstruktur
+## Project Structure
 
 ```
 src/
-├── assets/              # Statische Assets (Bilder, Icons)
-├── components/          # Wiederverwendbare UI-Komponenten
-│   ├── ui/             # Basis-UI-Provider-Komponenten
-│   └── *.tsx           # Feature-spezifische Komponenten
-├── data/               # Statische Daten und Konstanten
-├── entities/           # TypeScript-Typdefinitionen
-├── hooks/              # Benutzerdefinierte React Hooks
-├── pages/              # Seitenkomponenten
-├── services/           # API-Clients und externe Services
-├── routes.tsx          # Anwendungsrouting-Konfiguration
-├── store.ts            # Globales State Management
-├── theme.ts            # Chakra UI Theme-Konfiguration
-├── index.css           # Globale Styles
-└── main.tsx            # Anwendungseinstiegspunkt
+├── assets/              # Static assets (images, icons)
+├── components/          # Reusable UI components
+│   ├── ui/             # Base UI provider components
+│   └── *.tsx           # Feature-specific components
+├── data/               # Static data and constants
+├── entities/           # TypeScript type definitions
+├── hooks/              # Custom React hooks
+├── pages/              # Page components
+├── services/           # API clients and external services
+├── routes.tsx          # Application routing configuration
+├── store.ts            # Global state management
+├── theme.ts            # Chakra UI theme configuration
+├── index.css           # Global styles
+└── main.tsx            # Application entry point
 ```
 
-## Entwicklungssetup
+## Development Setup
 
-### Voraussetzungen
+### Prerequisites
 
 - Node.js 18+ 
-- npm oder yarn Package Manager
+- npm or yarn package manager
 - Git
 
-### Umgebungssetup
+### Environment Setup
 
-1. **Repository klonen**
+1. **Clone the repository**
    ```bash
    git clone https://github.com/SaMirzaei/game-hub.git
    cd game-hub
    ```
 
-2. **Abhängigkeiten installieren**
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-3. **Entwicklungsserver starten**
+3. **Start development server**
    ```bash
    npm run dev
    ```
 
-4. **Browser öffnen**
-   Navigieren Sie zu `http://localhost:5173`
+4. **Open browser**
+   Navigate to `http://localhost:5173`
 
-### Entwicklungsscripts
+### Development Scripts
 
-| Befehl | Beschreibung |
+| Command | Description |
 |---------|-------------|
-| `npm run dev` | Entwicklungsserver mit Hot Reload starten |
-| `npm run build` | Produktionsfertiges Bundle erstellen |
-| `npm run preview` | Produktions-Build lokal vorschauen |
-| `npm run lint` | ESLint für Code-Qualitätsprüfungen ausführen |
+| `npm run dev` | Start development server with hot reload |
+| `npm run build` | Build production-ready bundle |
+| `npm run preview` | Preview production build locally |
+| `npm run lint` | Run ESLint for code quality checks |
 
-## Architektur-Übersicht
+## Architecture Overview
 
-### Technologie-Stack
+### Technology Stack
 
-- **React 19**: Neueste Version mit verbesserten Concurrent-Features
-- **TypeScript**: Typsichere JavaScript-Entwicklung
-- **Vite**: Schnelles Build-Tool und Entwicklungsserver
-- **Chakra UI v3**: Moderne React-Komponenten-Bibliothek
-- **TanStack Query**: Server State Management und Caching
-- **Zustand**: Leichtgewichtiges Client State Management
-- **React Router DOM**: Deklaratives Routing
+- **React 19**: Latest version with improved concurrent features
+- **TypeScript**: Type-safe JavaScript development
+- **Vite**: Fast build tool and development server
+- **Chakra UI v3**: Modern React component library
+- **TanStack Query**: Server state management and caching
+- **Zustand**: Lightweight client state management
+- **React Router DOM**: Declarative routing
 
-### Wichtige Design-Patterns
+### Key Design Patterns
 
-1. **Komponenten-Komposition**: Kleine, wiederverwendbare Komponenten
-2. **Custom Hooks**: Geschäftslogik-Trennung
-3. **Service Layer**: API-Abstraktion
-4. **Type Safety**: Umfassende TypeScript-Nutzung
+1. **Component Composition**: Small, reusable components
+2. **Custom Hooks**: Business logic separation
+3. **Service Layer**: API abstraction
+4. **Type Safety**: Comprehensive TypeScript usage
 
-## Komponenten-Richtlinien
+## Component Guidelines
 
-### Komponenten-Struktur
+### Component Structure
 
 ```tsx
 // ComponentName.tsx
@@ -122,34 +122,34 @@ export default ComponentName;
 
 ### Best Practices
 
-1. **Funktionale Komponenten verwenden** mit Hooks
-2. **Props-Interface** sollte explizit definiert werden
-3. **Default Exports** für Komponenten
-4. **Beschreibende Namen** nach PascalCase
-5. **Kleine Komponenten komponieren** anstatt große
+1. **Use functional components** with hooks
+2. **Props interface** should be explicitly defined
+3. **Default exports** for components
+4. **Descriptive names** following PascalCase
+5. **Compose small components** rather than large ones
 
-### Komponenten-Kategorien
+### Component Categories
 
-- **Pages**: Route-Level-Komponenten (`HomePage`, `GameDetailsPage`)
-- **Layout**: Strukturkomponenten (`Layout`, `NavBar`)
-- **UI**: Wiederverwendbare Interface-Elemente (`GameCard`, `CriticScore`)
-- **Form**: Input- und Form-bezogene Komponenten
+- **Pages**: Route-level components (`HomePage`, `GameDetailsPage`)
+- **Layout**: Structure components (`Layout`, `NavBar`)
+- **UI**: Reusable interface elements (`GameCard`, `CriticScore`)
+- **Form**: Input and form-related components
 
-## Styling mit Chakra UI
+## Styling with Chakra UI
 
-### Theme-Konfiguration
+### Theme Configuration
 
-Die Anwendung verwendet ein benutzerdefiniertes Chakra UI Theme, definiert in `src/theme.ts`:
+The application uses a custom Chakra UI theme defined in `src/theme.ts`:
 
 ```typescript
 import { createSystem, defaultConfig } from "@chakra-ui/react"
 
 export const theme = createSystem(defaultConfig, {
-  // Benutzerdefinierte Theme-Konfiguration
+  // Custom theme configuration
 })
 ```
 
-### Komponenten-Styling
+### Component Styling
 
 ```tsx
 import { Box, Text } from '@chakra-ui/react';
@@ -157,11 +157,11 @@ import { Box, Text } from '@chakra-ui/react';
 const StyledComponent = () => (
   <Box
     p={4}              // padding: 1rem
-    bg="gray.100"      // Hintergrundfarbe
-    borderRadius="md"  // Border Radius
+    bg="gray.100"      // background color
+    borderRadius="md"  // border radius
   >
     <Text fontSize="lg" fontWeight="bold">
-      Gestylter Text
+      Styled text
     </Text>
   </Box>
 );
@@ -174,13 +174,13 @@ const StyledComponent = () => (
   width={{ base: "100%", md: "50%" }}
   fontSize={{ base: "sm", md: "md", lg: "lg" }}
 >
-  Responsive Inhalte
+  Responsive content
 </Box>
 ```
 
-### Dark Mode-Unterstützung
+### Dark Mode Support
 
-Die App enthält Theme-Switching-Funktionalität:
+The app includes theme switching functionality:
 
 ```tsx
 import { useColorMode } from '@chakra-ui/react';
@@ -190,7 +190,7 @@ const ThemeToggle = () => {
   
   return (
     <Button onClick={toggleColorMode}>
-      {colorMode === 'light' ? 'Dunkler' : 'Heller'} Modus
+      {colorMode === 'light' ? 'Dark' : 'Light'} Mode
     </Button>
   );
 };
@@ -200,7 +200,7 @@ const ThemeToggle = () => {
 
 ### Zustand Store
 
-Globaler State wird mit Zustand in `src/store.ts` verwaltet:
+Global state is managed using Zustand in `src/store.ts`:
 
 ```typescript
 import { create } from "zustand";
@@ -216,11 +216,11 @@ interface GameQueryStore {
 const useGameQueryStore = create<GameQueryStore>((set) => ({
   gameQuery: {},
   setSearchText: (searchText) => set(() => ({ gameQuery: { searchText } })),
-  // ... andere Setter
+  // ... other setters
 }));
 ```
 
-### Verwendung in Komponenten
+### Usage in Components
 
 ```tsx
 import useGameQueryStore from '../store';
@@ -232,7 +232,7 @@ const SearchComponent = () => {
     <Input
       value={gameQuery.searchText || ''}
       onChange={(e) => setSearchText(e.target.value)}
-      placeholder="Spiele suchen..."
+      placeholder="Search games..."
     />
   );
 };
@@ -242,7 +242,7 @@ const SearchComponent = () => {
 
 ### TanStack Query Setup
 
-Data Fetching verwendet TanStack Query für Caching und Synchronisation:
+Data fetching uses TanStack Query for caching and synchronization:
 
 ```tsx
 // hooks/useGames.ts
@@ -282,12 +282,12 @@ const useGame = (slug: string) =>
     queryFn: () => apiClient.get(slug),
   });
 
-// Verwendung in Komponente
+// Usage in component
 const GameDetails = ({ slug }: { slug: string }) => {
   const { data: game, isLoading, error } = useGame(slug);
   
   if (isLoading) return <Spinner />;
-  if (error) return <Text>Fehler beim Laden des Spiels</Text>;
+  if (error) return <Text>Error loading game</Text>;
   
   return <div>{game?.name}</div>;
 };
@@ -295,9 +295,9 @@ const GameDetails = ({ slug }: { slug: string }) => {
 
 ## Routing
 
-### Route-Konfiguration
+### Route Configuration
 
-Routen sind in `src/routes.tsx` definiert:
+Routes are defined in `src/routes.tsx`:
 
 ```tsx
 import { createBrowserRouter } from "react-router-dom";
@@ -335,9 +335,9 @@ const GameCard = ({ game }: { game: Game }) => {
 
 ## Type Safety
 
-### Entity-Definitionen
+### Entity Definitions
 
-Typen sind in `src/entities/` definiert:
+Types are defined in `src/entities/`:
 
 ```typescript
 // entities/Game.ts
@@ -359,7 +359,7 @@ export interface Genre {
 }
 ```
 
-### API-Response-Typen
+### API Response Types
 
 ```typescript
 export interface FetchResponse<T> {
@@ -369,7 +369,7 @@ export interface FetchResponse<T> {
 }
 ```
 
-## Performance-Überlegungen
+## Performance Considerations
 
 ### Code Splitting
 
@@ -378,13 +378,13 @@ import { lazy, Suspense } from 'react';
 
 const GameDetailsPage = lazy(() => import('./pages/GameDetailsPage'));
 
-// Verwendung mit Suspense
+// Usage with Suspense
 <Suspense fallback={<Spinner />}>
   <GameDetailsPage />
 </Suspense>
 ```
 
-### Bild-Optimierung
+### Image Optimization
 
 ```tsx
 // services/image-url.ts
@@ -397,7 +397,7 @@ const getCroppedImageUrl = (url: string) => {
 };
 ```
 
-### Unendliches Scrollen
+### Infinite Scrolling
 
 ```tsx
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -412,101 +412,101 @@ const GameGrid = () => {
       hasMore={!!hasNextPage}
       loader={<Spinner />}
     >
-      {/* Spiele-Karten */}
+      {/* Game cards */}
     </InfiniteScroll>
   );
 };
 ```
 
-## Build-Prozess
+## Build Process
 
-### Entwicklungs-Build
+### Development Build
 
 ```bash
 npm run dev
 ```
 
-Funktionen:
+Features:
 - Hot Module Replacement (HMR)
-- Source Maps
-- Fast Refresh
-- Entwicklungsserver auf `localhost:5173`
+- Source maps
+- Fast refresh
+- Development server at `localhost:5173`
 
-### Produktions-Build
+### Production Build
 
 ```bash
 npm run build
 ```
 
-Ausgabe:
-- Optimiertes Bundle im `dist/` Verzeichnis
-- Code Splitting
-- Asset-Optimierung
-- Tree Shaking
+Output:
+- Optimized bundle in `dist/` directory
+- Code splitting
+- Asset optimization
+- Tree shaking
 
-### Build-Analyse
+### Build Analysis
 
 ```bash
 npm run build -- --analyze
 ```
 
-### Umgebungsvariablen
+### Environment Variables
 
-Erstellen Sie `.env.local` für lokale Entwicklung:
+Create `.env.local` for local development:
 
 ```env
 VITE_API_KEY=your_rawg_api_key
 VITE_API_BASE_URL=https://api.rawg.io/api
 ```
 
-## Fehlerbehebung
+## Troubleshooting
 
-### Häufige Probleme
+### Common Issues
 
-1. **Port bereits in Verwendung**
+1. **Port already in use**
    ```bash
-   # Prozess auf Port 5173 beenden
+   # Kill process on port 5173
    lsof -ti:5173 | xargs kill -9
    ```
 
-2. **Node modules Probleme**
+2. **Node modules issues**
    ```bash
-   # Cache löschen und neu installieren
+   # Clear cache and reinstall
    rm -rf node_modules package-lock.json
    npm install
    ```
 
-3. **TypeScript-Fehler**
+3. **TypeScript errors**
    ```bash
-   # TypeScript-Konfiguration überprüfen
+   # Check TypeScript configuration
    npx tsc --noEmit
    ```
 
-4. **Build-Fehler**
+4. **Build failures**
    ```bash
-   # Vite-Cache löschen
+   # Clear Vite cache
    npx vite --force
    ```
 
-### Entwicklungstools
+### Development Tools
 
-- **React Developer Tools**: Browser-Erweiterung für React-Debugging
-- **React Query Devtools**: Eingebaute Query-Inspektion (in Entwicklung aktiviert)
-- **ESLint**: Code-Qualitäts- und Stilprüfung
-- **TypeScript**: Compile-Time-Typprüfung
+- **React Developer Tools**: Browser extension for React debugging
+- **React Query Devtools**: Built-in query inspection (enabled in development)
+- **ESLint**: Code quality and style checking
+- **TypeScript**: Compile-time type checking
 
-### Performance-Monitoring
+### Performance Monitoring
 
 ```tsx
-// Performance-Monitoring hinzufügen
+// Add performance monitoring
 if (import.meta.env.DEV) {
-  // Nur für Entwicklung
-  console.log('Performance-Metriken:', performance.timing);
+  // Development-only monitoring
+  console.log('Performance metrics:', performance.timing);
 }
 ```
 
-## Nächste Schritte
+## Next Steps
 
-- Erkunden Sie das [API-Integrationshandbuch](API.md)
-- Überprüfen Sie die [Architektur-Übersicht](ARCHITECTURE.md)
-- Lesen Sie die [Beitragsrichtlinien](CONTRIBUTING.md)
+- Explore the [API Integration Guide](API.md)
+- Review [Architecture Overview](ARCHITECTURE.md)
+- Check [Contributing Guidelines](CONTRIBUTING.md)
