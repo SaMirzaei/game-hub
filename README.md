@@ -17,6 +17,10 @@
 
 ---
 
+> 🧪 **Heads up:** Game Hub is a **proof of concept (PoC)** built for learning and demonstration purposes. It is not production-grade software — expect rough edges, a hardcoded API key, and no automated tests.
+
+---
+
 ## ✨ Features
 
 - 🔍 **Search** the full RAWG catalog from the navbar

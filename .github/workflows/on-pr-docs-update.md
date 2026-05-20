@@ -13,6 +13,7 @@ on:
       - 'tsconfig*.json'
       - 'eslint.config.js'
       - 'index.html'
+      - 'README.md'
   reaction: "eyes"
   status-comment: true
 
