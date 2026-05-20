@@ -50,7 +50,7 @@ Game Hub is a single React SPA. Internally it is organized into clearly separate
 | **Entities**        | TypeScript interfaces mirroring RAWG resources.                    | [src/entities/](../src/entities/) |
 | **Store**           | Zustand store holding the current `GameQuery` (genre, platform, sort, search). | [src/store.ts](../src/store.ts) |
 | **Theme**           | Chakra theme config + default color mode.                          | [src/theme.ts](../src/theme.ts) |
-| **Static data**     | Fallback lists for genres and platforms.                           | [src/data/](../src/data/)       |
+| **Static data**     | Seed/mock lists for genres and platforms; injected as React Query `initialData` so the sidebar renders instantly without a network round-trip. | [src/data/](../src/data/)       |
 
 ## Level 2: Key Building Blocks
 
@@ -79,9 +79,9 @@ Grouped by role:
 | ----------------- | -------------------------------------- | --------------------------------- |
 | `useGames`        | `useInfiniteQuery` + `APIClient.getAll` | `/games` (paginated)              |
 | `useGame`         | `useQuery` + `APIClient.get`           | `/games/:slug`                    |
-| `useGenres`       | `useQuery` (fallback to static data)   | `/genres`                         |
+| `useGenres`       | `useQuery` with `initialData` from [`src/data/genres.ts`](../src/data/genres.ts) | `/genres`          |
 | `useGenre`        | local lookup                           | —                                 |
-| `usePlatforms`    | `useQuery` (fallback to static data)   | `/platforms/lists/parents`        |
+| `usePlatforms`    | `useQuery` with `initialData` from [`src/data/platforms.ts`](../src/data/platforms.ts) | `/platforms/lists/parents` |
 | `usePlatform`     | local lookup                           | —                                 |
 | `useScreenshots`  | `useQuery`                             | `/games/:id/screenshots`          |
 | `useTrailers`     | `useQuery`                             | `/games/:id/movies`               |
