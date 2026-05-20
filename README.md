@@ -18,6 +18,8 @@
 ---
 
 > 🧪 **Heads up:** Game Hub is a **proof of concept (PoC)** built for learning and demonstration purposes. It is not production-grade software — expect rough edges, a hardcoded API key, and no automated tests.
+>
+> 🧩 **Mock data:** The **genres** and **parent platforms** lists are served from local mock files in [`src/data/`](src/data/) as React Query `initialData`. Live game results still come from the RAWG API.
 
 ---
 
@@ -31,6 +33,7 @@
 - 🌗 **Light / dark mode** toggle (persisted via `next-themes`)
 - 📱 **Fully responsive** layout (sidebar collapses below `lg` breakpoint)
 - ⚡ **24h client-side cache** via React Query — fewer requests, snappier UX
+- 🧩 **Mock/seed data** for genres and platforms in [`src/data/`](src/data/) — the sidebar renders instantly without waiting for RAWG
 
 ---
 
@@ -131,7 +134,7 @@ src/
   - Server state is *never* mirrored into Zustand.
 - **Generic API client** — every hook instantiates `new APIClient<Entity>(endpoint)` and wraps it in `useQuery` / `useInfiniteQuery`.
 - **24h `staleTime`** on the games list keeps navigation instant within a session.
-- **Static fallbacks** for genres and platforms in `src/data/` so the UI renders immediately.
+- **Static fallbacks (mock data)** for genres and platforms in [`src/data/genres.ts`](src/data/genres.ts) and [`src/data/platforms.ts`](src/data/platforms.ts) — used as React Query's `initialData` so the sidebar and platform selector render immediately, no spinner, no network round-trip.
 - **Route-level error boundary** — `GameDetailsPage` rethrows fetch errors, caught by `ErrorPage` via `errorElement`.
 
 Full arc42 documentation lives under [`docs/`](docs/):
