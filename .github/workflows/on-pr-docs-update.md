@@ -1,9 +1,18 @@
 ---
 on:
   pull_request:
-    types: [opened]
+    types: [opened, synchronize, reopened, ready_for_review]
     paths:
-      - 'pipelines/**'
+      - 'src/**'
+      - 'docs/**'
+      - 'template/**'
+      - 'public/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'vite.config.ts'
+      - 'tsconfig*.json'
+      - 'eslint.config.js'
+      - 'index.html'
   reaction: "eyes"
   status-comment: true
 
