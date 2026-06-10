@@ -194,7 +194,7 @@ graph LR
         D9[arc42_09_decisions.md]
     end
 
-    WF -->|@copilot comment| AG
+    WF -->|"@copilot comment"| AG
     CI -->|always loaded| AG
     FI -->|loaded when editing| AG
     AG -->|reads before editing| T

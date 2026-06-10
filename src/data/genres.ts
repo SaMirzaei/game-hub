@@ -1,5 +1,5 @@
 export default {
-  count: 19,
+  count: 20,
   next: null,
   previous: null,
   results: [
@@ -874,6 +874,52 @@ export default {
           slug: "pirates-3",
           name: "Sid Meier's Pirates!",
           added: 2346,
+        },
+      ],
+    },
+    {
+      id: 99,
+      name: "Horror",
+      slug: "horror",
+      games_count: 12480,
+      image_background:
+        "https://media.rawg.io/media/games/cdd/cdd31b6b4b04ac39ee2bb4fb12c3aa3a.jpg",
+      games: [
+        {
+          id: 13668,
+          slug: "amnesia-the-dark-descent",
+          name: "Amnesia: The Dark Descent",
+          added: 10378,
+        },
+        {
+          id: 41,
+          slug: "little-nightmares",
+          name: "Little Nightmares",
+          added: 11493,
+        },
+        {
+          id: 9882,
+          slug: "dont-starve-together",
+          name: "Don't Starve Together",
+          added: 9877,
+        },
+        {
+          id: 4286,
+          slug: "bioshock",
+          name: "BioShock",
+          added: 11200,
+        },
+        {
+          id: 28,
+          slug: "red-dead-redemption-2",
+          name: "Outlast",
+          added: 7000,
+        },
+        {
+          id: 58616,
+          slug: "phasmophobia",
+          name: "Phasmophobia",
+          added: 4500,
         },
       ],
     },

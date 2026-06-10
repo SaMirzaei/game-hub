@@ -55,7 +55,7 @@ Every hook follows the same shape:
 ## Caching & Performance
 
 - **`staleTime`** — `useGames` uses `24h`; reduces RAWG calls during normal browsing.
-- **Static fallbacks** — `useGenres` / `usePlatforms` ship with static seed data in [src/data/](../src/data/) so the UI renders instantly while the network call resolves.
+- **`initialData` for sidebar lists** — `useGenres` and `usePlatforms` pass static seed data ([src/data/genres.ts](../src/data/genres.ts), [src/data/platforms.ts](../src/data/platforms.ts)) as React Query's `initialData`. The genre and platform selectors render immediately on first paint with no spinner and no network dependency; React Query then refreshes in the background after `staleTime` expires.
 - **Code splitting** — Vite handles per-route bundles automatically via dynamic imports where used.
 - **Skeleton UI** — `GameCardSkeleton` renders during initial load to avoid layout shift.
 
