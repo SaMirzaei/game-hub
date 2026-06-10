@@ -63,4 +63,5 @@ User      Router      GameDetailsPage     useGame        APIClient        RAWG A
 1. `index.html` loads `src/main.tsx`.
 2. `createRoot` mounts a tree of providers: `StrictMode` → Chakra `Provider` → `QueryClientProvider` → `RouterProvider`.
 3. `RouterProvider` resolves the current URL against `routes.tsx` and renders `Layout` + the matching child route.
-4. `ReactQueryDevtools` is mounted alongside in development.
+4. **Sidebar renders instantly** — `useGenres` and `usePlatforms` inject static seed data ([src/data/genres.ts](../src/data/genres.ts), [src/data/platforms.ts](../src/data/platforms.ts)) as React Query `initialData`. The genre and platform lists are available immediately on first paint, with no spinner and no RAWG round-trip. React Query refreshes them in the background after `staleTime` expires.
+5. `ReactQueryDevtools` is mounted alongside in development.

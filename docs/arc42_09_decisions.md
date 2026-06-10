@@ -11,6 +11,7 @@ This section records the significant architectural decisions for Game Hub in lig
 | [GH] ADR005                            | Chakra UI v3 as component library      | Accepted |
 | [GH] ADR006                            | React Router 7 with data routes        | Accepted |
 | [GH] ADR007                            | Deploy as static SPA on Vercel         | Accepted |
+| [GH] ADR008                            | Use React Query `initialData` for static seed lists | Accepted |
 
 ---
 
@@ -104,3 +105,18 @@ This section records the significant architectural decisions for Game Hub in lig
 - ✅ Free / low-cost global CDN.
 - ✅ Zero-config deploy from GitHub `main`.
 - ⚠️ Any future server-side concerns (e.g. proxying the RAWG key) would require adding Vercel Functions or moving off-platform.
+
+## [GH] ADR008 - Use React Query `initialData` for static seed lists
+
+**Status**: Accepted
+
+**Context**: The genre and platform sidebar lists are fetched from the RAWG API (`/genres`, `/platforms/lists/parents`). On first paint these lists were blank for the duration of the network round-trip, causing a spinner and layout shift.
+
+**Decision**: Ship static seed lists in [src/data/genres.ts](../src/data/genres.ts) and [src/data/platforms.ts](../src/data/platforms.ts). Pass them as React Query's `initialData` in `useGenres` and `usePlatforms`. React Query treats the seed data as immediately available (no loading state) and refreshes from RAWG after `staleTime` expires.
+
+**Consequences**
+- ✅ Sidebar renders instantly on first paint — no spinner, no network round-trip required.
+- ✅ No extra state management; `initialData` is a first-class React Query concept.
+- ✅ Offline / slow-network resilience: the seed data always covers the common genres and platforms.
+- ⚠️ Seed files must be kept reasonably in sync with RAWG data; stale seeds are acceptable for display but could drift over time.
+- ⚠️ New genres/platforms added to RAWG will not appear until a live fetch completes (after `staleTime`).
