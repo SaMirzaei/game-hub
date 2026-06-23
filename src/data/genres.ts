@@ -868,13 +868,7 @@ export default {
           slug: "sid-meiers-civilization-iv-colonization",
           name: "Sid Meier's Civilization IV: Colonization",
           added: 2421,
-        },
-        {
-          id: 6885,
-          slug: "pirates-3",
-          name: "Sid Meier's Pirates!",
-          added: 2346,
-        },
+        }
       ],
     },
   ],
