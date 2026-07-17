@@ -16,3 +16,12 @@ export default interface Game {
   description: string;
   description_raw: string;
 }
+
+export default interface GameDetails extends Game {
+  website: string;
+  developers: Publisher[];
+  esrb_rating: {
+    name: string;
+  };
+  screenshots: { image: string }[];
+}
