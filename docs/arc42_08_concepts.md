@@ -4,14 +4,15 @@
 
 The domain mirrors the RAWG API. All entities live in [src/entities/](../src/entities/) as TypeScript interfaces.
 
-| Entity        | Key fields (excerpt)                                                                                  |
-| ------------- | ------------------------------------------------------------------------------------------------------ |
-| **Game**      | `id`, `slug`, `name`, `background_image`, `genres[]`, `publishers[]`, `parent_platforms[]`, `metacritic`, `rating_top`, `released`, `description_raw` |
-| **Genre**     | `id`, `name`, `slug`, `image_background`                                                              |
-| **Platform**  | `id`, `name`, `slug`                                                                                  |
-| **Publisher** | `id`, `name`                                                                                          |
-| **Screenshot**| `id`, `image`                                                                                         |
-| **Trailer**   | `id`, `name`, `preview`, `data` (video URLs by quality)                                               |
+| Entity           | Key fields (excerpt)                                                                                  |
+| ---------------- | ------------------------------------------------------------------------------------------------------ |
+| **Game**         | `id`, `slug`, `name`, `background_image`, `genres[]`, `publishers[]`, `parent_platforms[]`, `metacritic`, `rating_top`, `released`, `description_raw` |
+| **GameDetails**  | Extends `Game` — adds `website`, `developers` (`Publisher[]`), `esrb_rating` (`{name}`), `screenshots` (`{image}[]`). Used exclusively on the game details page via `useGame`. |
+| **Genre**        | `id`, `name`, `slug`, `image_background`                                                              |
+| **Platform**     | `id`, `name`, `slug`                                                                                  |
+| **Publisher**    | `id`, `name` (also reused as developer shape in `GameDetails`)                                        |
+| **Screenshot**   | `id`, `image`                                                                                         |
+| **Trailer**      | `id`, `name`, `preview`, `data` (video URLs by quality)                                               |
 
 ### UI / Query Model
 
