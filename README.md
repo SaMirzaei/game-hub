@@ -17,7 +17,7 @@
 
 ---
 
-> 🧪 **Heads up:** Game Hub is a **proof of concept (PoC)** built for learning and demonstration purposes. It is not production-grade software — expect rough edges, a hardcoded API key, and no automated tests.
+> 🧪 **Heads up:** Game Hub is a **proof of concept (PoC)** built for learning and demonstration purposes. It is not production-grade software — expect rough edges and no automated tests.
 
 ---
 
@@ -72,17 +72,24 @@ npm run dev
 
 The app will be available on <http://localhost:5173>.
 
+### Configure RAWG API key
+
+The app uses RAWG's `key` query parameter in [`src/services/api-client.ts`](src/services/api-client.ts).
+
+1. Open [`src/services/api-client.ts`](src/services/api-client.ts).
+2. Replace the existing `key` value with your own RAWG API key.
+
+> ⚠️ The API key is currently stored in source code for simplicity in this PoC.
+> For real projects, move it to an environment-based approach (for example `VITE_RAWG_API_KEY`).
+
 ### Scripts
 
 | Script | What it does |
 | ------ | ------------ |
 | `npm run dev` | Start the Vite dev server with HMR |
-| `npm run build` | Type-check (`tsc -b`) and produce a production build in `dist/` |
+| `npm run build` | Type-check (`tsc -b`) and create a production build in `dist/` |
 | `npm run preview` | Preview the production build locally |
 | `npm run lint` | Run ESLint over the project |
-
-> ⚠️ The RAWG API key currently lives in [`src/services/api-client.ts`](src/services/api-client.ts).
-> For your own fork, replace it with your own key (and consider moving it to a Vite env variable such as `VITE_RAWG_API_KEY`).
 
 ---
 
