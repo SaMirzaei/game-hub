@@ -95,7 +95,19 @@ All game-list parameters (`genres`, `parent_platforms`, `ordering`, `search`, `p
 
 ### Entities
 
-`Game`, `Genre`, `Platform`, `Publisher`, `Screenshot`, `Trailer` — plain TypeScript interfaces in [src/entities/](../src/entities/).
+Plain TypeScript interfaces in [src/entities/](../src/entities/) mirroring RAWG API resources:
+
+| Entity          | Extends   | Key fields (excerpt)                                                          |
+| --------------- | --------- | ----------------------------------------------------------------------------- |
+| `Game`          | —         | `id`, `slug`, `name`, `background_image`, `genres[]`, `publishers[]`, `metacritic`, `rating_top`, `released`, `description_raw` |
+| `GameDetails`   | `Game`    | `website`, `developers` (`Publisher[]`), `esrb_rating` (`id`, `name`, `slug`), `screenshots` (`id`, `image`) |
+| `Genre`         | —         | `id`, `name`, `slug`, `image_background`                                      |
+| `Platform`      | —         | `id`, `name`, `slug`                                                          |
+| `Publisher`     | —         | `id`, `name`                                                                  |
+| `Screenshot`    | —         | `id`, `image`                                                                 |
+| `Trailer`       | —         | `id`, `name`, `preview`, `data` (video URLs by quality)                       |
+
+`GameDetails` is used by `useGame(slug)` / `GameDetailsPage` to access detail-only fields not present on list results.
 
 ### Store (`useGameQueryStore`)
 

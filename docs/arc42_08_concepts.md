@@ -4,14 +4,17 @@
 
 The domain mirrors the RAWG API. All entities live in [src/entities/](../src/entities/) as TypeScript interfaces.
 
-| Entity        | Key fields (excerpt)                                                                                  |
-| ------------- | ------------------------------------------------------------------------------------------------------ |
-| **Game**      | `id`, `slug`, `name`, `background_image`, `genres[]`, `publishers[]`, `parent_platforms[]`, `metacritic`, `rating_top`, `released`, `description_raw` |
-| **Genre**     | `id`, `name`, `slug`, `image_background`                                                              |
-| **Platform**  | `id`, `name`, `slug`                                                                                  |
-| **Publisher** | `id`, `name`                                                                                          |
-| **Screenshot**| `id`, `image`                                                                                         |
-| **Trailer**   | `id`, `name`, `preview`, `data` (video URLs by quality)                                               |
+| Entity            | Extends   | Key fields (excerpt)                                                                                  |
+| ----------------- | --------- | ------------------------------------------------------------------------------------------------------ |
+| **Game**          | —         | `id`, `slug`, `name`, `background_image`, `genres[]`, `publishers[]`, `parent_platforms[]`, `metacritic`, `rating_top`, `released`, `description_raw` |
+| **GameDetails**   | `Game`    | `website`, `developers` (`Publisher[]`), `esrb_rating` (`id`, `name`, `slug`), `screenshots` (`id`, `image`) |
+| **Genre**         | —         | `id`, `name`, `slug`, `image_background`                                                              |
+| **Platform**      | —         | `id`, `name`, `slug`                                                                                  |
+| **Publisher**     | —         | `id`, `name`                                                                                          |
+| **Screenshot**    | —         | `id`, `image`                                                                                         |
+| **Trailer**       | —         | `id`, `name`, `preview`, `data` (video URLs by quality)                                               |
+
+`GameDetails` extends `Game` with detail-page-only fields returned by the `/games/:slug` endpoint.
 
 ### UI / Query Model
 
