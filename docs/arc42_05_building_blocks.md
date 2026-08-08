@@ -95,7 +95,17 @@ All game-list parameters (`genres`, `parent_platforms`, `ordering`, `search`, `p
 
 ### Entities
 
-`Game`, `Genre`, `Platform`, `Publisher`, `Screenshot`, `Trailer` — plain TypeScript interfaces in [src/entities/](../src/entities/).
+Plain TypeScript interfaces in [src/entities/](../src/entities/) mirroring RAWG resources:
+
+| Interface       | Description                                                                                                     |
+| --------------- | --------------------------------------------------------------------------------------------------------------- |
+| `Game`          | Default export. Represents a single game resource from RAWG.                                                    |
+| `GameResponse`  | Named export. Wraps paginated game list responses (`count`, `next`, `previous`, `results: Game[]`). Used by `useGames` / `APIClient.getAll`. |
+| `Genre`         | Genre resource.                                                                                                 |
+| `Platform`      | Platform resource.                                                                                              |
+| `Publisher`     | Publisher resource.                                                                                             |
+| `Screenshot`    | Screenshot resource.                                                                                            |
+| `Trailer`       | Trailer resource (with quality variants).                                                                       |
 
 ### Store (`useGameQueryStore`)
 
