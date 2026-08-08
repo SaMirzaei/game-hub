@@ -16,3 +16,8 @@ export default interface Game {
   description: string;
   description_raw: string;
 }
+export interface GameDetails extends Game {
+  website: string;
+  developers: Publisher[];
+}
+

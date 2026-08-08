@@ -95,7 +95,19 @@ All game-list parameters (`genres`, `parent_platforms`, `ordering`, `search`, `p
 
 ### Entities
 
-`Game`, `Genre`, `Platform`, `Publisher`, `Screenshot`, `Trailer` — plain TypeScript interfaces in [src/entities/](../src/entities/).
+Plain TypeScript interfaces in [src/entities/](../src/entities/) mirroring RAWG resources:
+
+| Interface     | Extends  | Key additions                                   |
+| ------------- | -------- | ----------------------------------------------- |
+| `Game`        | —        | Core game fields (id, slug, name, genres, etc.) |
+| `GameDetails` | `Game`   | `website: string`, `developers: Publisher[]`    |
+| `Genre`       | —        | id, name, slug, image_background                |
+| `Platform`    | —        | id, name, slug                                  |
+| `Publisher`   | —        | id, name                                        |
+| `Screenshot`  | —        | id, image                                       |
+| `Trailer`     | —        | id, name, preview, data (video URLs)            |
+
+`GameDetails` is used by `useGame` (detail page) and returned for the `/games/:slug` endpoint.
 
 ### Store (`useGameQueryStore`)
 
